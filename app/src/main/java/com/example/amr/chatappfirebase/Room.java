@@ -33,8 +33,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class Room extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     String rooom = "";
     private Button add_room;
     private EditText room_name;

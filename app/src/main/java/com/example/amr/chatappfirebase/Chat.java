@@ -46,24 +46,24 @@ public class Chat extends AppCompatActivity {
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name);
 
-            btn_send_msg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        btn_send_msg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    temp_key = root.push().getKey();
-                    root.updateChildren(map);
+                Map<String, Object> map = new HashMap<String, Object>();
+                temp_key = root.push().getKey();
+                root.updateChildren(map);
 
-                    DatabaseReference message_root = root.child(temp_key);
-                    Map<String, Object> map2 = new HashMap<String, Object>();
-                    map2.put("name", user_name);
-                    map2.put("msg", input_msg.getText().toString());
+                DatabaseReference message_root = root.child(temp_key);
+                Map<String, Object> map2 = new HashMap<String, Object>();
+                map2.put("name", user_name);
+                map2.put("msg", input_msg.getText().toString());
 
-                    message_root.updateChildren(map2);
+                message_root.updateChildren(map2);
 
-                    input_msg.setText("");
-                }
-            });
+                input_msg.setText("");
+            }
+        });
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
